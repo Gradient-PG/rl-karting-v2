@@ -24,8 +24,8 @@ public class TimerHUDManager : MonoBehaviour
         if (m_TimeManager.IsFinite)
         {   
             timerText.gameObject.SetActive(true);
-            int timeRemaining = (int) Math.Ceiling(m_TimeManager.TimeRemaining);
-            timerText.text = string.Format("{0}:{1:00}", timeRemaining / 60, timeRemaining % 60);
+            int timePassed = (int) Math.Ceiling(m_TimeManager.TimePassed);
+            timerText.text = string.Format("{0}:{1:00}", timePassed / 60, timePassed % 60);
         }
         else
         {

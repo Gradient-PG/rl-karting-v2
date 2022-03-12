@@ -43,36 +43,8 @@ public class FeedbackFlashHUD : MonoBehaviour
     private void Update()
     {
         if (!m_timeManager.IsFinite) return;
-        
-        
-        if (m_timeManager.TimeRemaining < showCriticalTimeVignetteWhen)
-        {
-            EnableFlash(true);
-            float vignetteAlpha = criticalTimeVignetteMaxAlpha;
+        EnableFlash(false);
 
-            if (m_GameFlowManager.gameState == GameState.Lost)
-                vignetteCanvasGroup.alpha = vignetteAlpha;
-            if (m_GameFlowManager.gameState == GameState.Won)
-                vignetteCanvasGroup.alpha = 0;
-            else
-            {
-                vignetteCanvasGroup.alpha = ((Mathf.Sin(Time.time * pulsatingVignetteFrequency) / 2) + 0.5f) * vignetteAlpha;
-
-                if(!warningSoundPlayed && vignetteCanvasGroup.alpha >= 0.5f){
-                    m_audioSource.PlayOneShot(warningAudioClip);
-                    warningSoundPlayed = true;
-                }
-
-                if(vignetteCanvasGroup.alpha < 0.5f){
-                    warningSoundPlayed = false;
-                }
-
-            }
-        }
-        else if (m_timeManager.TimeRemaining > showCriticalTimeVignetteWhen)
-        {
-            EnableFlash(false);
-        }
         
     }
 
