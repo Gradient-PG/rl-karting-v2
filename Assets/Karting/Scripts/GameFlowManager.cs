@@ -48,6 +48,11 @@ public class GameFlowManager : MonoBehaviour
     string m_SceneToLoad;
     float elapsedTimeBeforeEndScene = 0;
 
+    public bool playerWin = false;
+    public bool botWin = false;
+
+
+
     void Start()
     {
         if (autoFindKarts)
@@ -139,10 +144,12 @@ public class GameFlowManager : MonoBehaviour
         }
         else
         {
-            if (m_ObjectiveManager.AreAllObjectivesCompleted())
+            //if (m_ObjectiveManager.AreAllObjectivesCompleted())
+            if (playerWin)
                 EndGame(true);
 
-            if (m_TimeManager.IsFinite && m_TimeManager.IsOver)
+            //if (m_TimeManager.IsFinite && m_TimeManager.IsOver)
+            if (botWin)
                 EndGame(false);
         }
     }

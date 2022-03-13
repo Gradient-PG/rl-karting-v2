@@ -12,7 +12,11 @@ public class LapObject : TargetObject
     [HideInInspector]
     public bool lapOverNextPass;
 
+
+    PickupObject[] pickupObjects;
+
     void Start() {
+        pickupObjects = FindObjectsOfType<PickupObject>();
         Register();
     }
     
@@ -23,9 +27,27 @@ public class LapObject : TargetObject
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!((layerMask.value & 1 << other.gameObject.layer) > 0 && other.CompareTag("Player")))
-            return;
-       
-        Objective.OnUnregisterPickup?.Invoke(this);
+        if ((layerMask.value & 1 << other.gameObject.layer) > 0 && (other.gameObject.CompareTag("Player")))
+        {
+
+            CheckpointCounter counter = other.gameObject.transform.parent.gameObject.GetComponent<CheckpointCounter>();
+            if (pickupObjects.Length == counter.checkpoints)
+            {
+                GameFlowManager gameManager = GameObject.Find("GameManager").GetComponent<GameFlowManager>();
+
+
+                if (other.gameObject.transform.parent.gameObject.CompareTag("Player"))
+                {
+                    gameManager.playerWin = true;
+                }
+                else
+                {
+                    gameManager.botWin = true;
+                }
+
+            }
+
+        }
+        //Objective.OnUnregisterPickup?.Invoke(this);
     }
 }
