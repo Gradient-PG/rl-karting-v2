@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using static CheckpointCounter;
 /// <summary>
 /// This class inherits from TargetObject and represents a PickupObject.
 /// </summary>
@@ -15,6 +15,9 @@ public class PickupObject : TargetObject
     
     [Tooltip("Destroy this gameobject after collectDuration seconds")]
     public float collectDuration = 0f;
+
+    [Tooltip("Nie")]
+    public int myNumber = 0;
 
     void Start() {
         Register();
@@ -37,14 +40,25 @@ public class PickupObject : TargetObject
 
         TimeManager.OnAdjustTime(TimeGained);
 
-        Destroy(gameObject, collectDuration);
+        //Destroy(gameObject, collectDuration);
     }
     
     void OnTriggerEnter(Collider other)
     {
-        if ((layerMask.value & 1 << other.gameObject.layer) > 0 && other.gameObject.CompareTag("Player"))
+        if ((layerMask.value & 1 << other.gameObject.layer) > 0 && (other.gameObject.CompareTag("Player")))
         {
-            OnCollect();
+            
+            CheckpointCounter counter = other.gameObject.transform.parent.gameObject.GetComponent<CheckpointCounter>();
+            if (myNumber - 1 == counter.checkpoints)
+            {
+                counter.Increment();
+                if ( other.gameObject.transform.parent.gameObject.CompareTag("Player"))
+                {
+                    OnCollect();
+                }
+                    
+            } 
+            
         }
     }
 }
