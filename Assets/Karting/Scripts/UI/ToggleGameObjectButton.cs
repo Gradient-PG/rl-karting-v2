@@ -25,4 +25,10 @@ public class ToggleGameObjectButton : MonoBehaviour
         if (resetSelectionAfterClick)
             EventSystem.current.SetSelectedGameObject(null);
     }
+
+    public void QuitGame()
+    {
+        //Debug.Log("Quit");
+        Application.Quit();
+    }
 }
