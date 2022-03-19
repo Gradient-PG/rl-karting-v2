@@ -1,0 +1,93 @@
+behaviors:
+  ArcadeDriver:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 512
+      buffer_size: 10240
+      learning_rate: 0.0002
+      learning_rate_schedule: linear
+    network_settings:
+      normalize: false
+      hidden_units: 128
+      num_layers: 2
+      vis_encode_type: simple
+    reward_signals:
+      extrinsic:
+        gamma: 0.99
+        strength: 1.0
+    keep_checkpoints: 5
+    checkpoint_interval: 500000
+    max_steps: 50000000000
+    time_horizon: 64
+    summary_freq: 1000
+    threaded: true
+    framework: tensorflow
+  4x4Driver:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 512
+      buffer_size: 10240
+      learning_rate: 0.0003
+      learning_rate_schedule: linear
+    network_settings:
+      normalize: false
+      hidden_units: 128
+      num_layers: 2
+      vis_encode_type: simple
+    reward_signals:
+      extrinsic:
+        gamma: 0.99
+        strength: 1.0
+    keep_checkpoints: 5
+    checkpoint_interval: 500000
+    max_steps: 50000000000
+    time_horizon: 64
+    summary_freq: 1000
+    threaded: true
+    framework: tensorflow
+  MuscleDriver:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 512
+      buffer_size: 10240
+      learning_rate: 0.0003
+      learning_rate_schedule: linear
+    network_settings:
+      normalize: false
+      hidden_units: 128
+      num_layers: 2
+      vis_encode_type: simple
+    reward_signals:
+      extrinsic:
+        gamma: 0.99
+        strength: 1.0
+    keep_checkpoints: 5
+    checkpoint_interval: 500000
+    max_steps: 50000000000
+    time_horizon: 64
+    summary_freq: 1000
+    threaded: true
+    framework: tensorflow
+  RoadsterDriver:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 512
+      buffer_size: 10240
+      learning_rate: 0.0002
+      learning_rate_schedule: linear
+    network_settings:
+      normalize: false
+      hidden_units: 128
+      num_layers: 2
+      vis_encode_type: simple
+    reward_signals:
+      extrinsic:
+        gamma: 0.99
+        strength: 1.0
+    keep_checkpoints: 5
+    checkpoint_interval: 500000
+    max_steps: 50000000000
+    time_horizon: 64
+    summary_freq: 1000
+    threaded: true
+    framework: tensorflow
