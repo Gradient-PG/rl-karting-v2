@@ -6,18 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Karting/Scenes/IntroMenu.unity
+    path: Assets/Karting/Scenes/GameplayGyms/MainGame/IntroMenu.unity
     guid: d29260d8d84c94bd7ac95807b3da99d4
   - enabled: 1
-    path: Assets/Karting/Scenes/MainScene.unity
+    path: Assets/Karting/Scenes/GameplayGyms/MainGame/MainScene.unity
     guid: 92786e23da2af4a4f8803aaf44c47121
   - enabled: 1
-    path: Assets/Karting/Scenes/LoseScene.unity
+    path: Assets/Karting/Scenes/GameplayGyms/MainGame/LoseScene.unity
     guid: 9c449e01147824b419cda406398fb2e7
   - enabled: 1
-    path: Assets/Karting/Scenes/WinScene.unity
+    path: Assets/Karting/Scenes/GameplayGyms/MainGame/WinScene.unity
     guid: d6801f2e59f75ee4b919cf5da4e48e3b
   - enabled: 1
-    path: Assets/Karting/Scenes/MainSceneBotsOnly.unity
-    guid: 86f9838856bd56448909d9b11e712c5e
+    path: Assets/Karting/Scenes/GameplayGyms/MainGame/MainSceneBotsOnly.unity
+    guid: ccc2dbe5ebc5a5e42861908f94f8df1e
   m_configObjects: {}
